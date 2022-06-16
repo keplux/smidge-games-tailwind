@@ -1,12 +1,16 @@
 import '../styles/globals.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import '@splidejs/react-splide/css';
 import type { AppProps } from 'next/app';
-import { Navbar } from '../components';
+import { Footer, Navbar } from '../components';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

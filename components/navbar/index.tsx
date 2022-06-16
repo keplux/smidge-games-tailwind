@@ -25,6 +25,8 @@ import Image from 'next/image';
 
 import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
 import Button from '../button';
+import Tag from '../tag';
+import Link from 'next/link';
 
 const games = [
   {
@@ -35,7 +37,7 @@ const games = [
     genres: [{ label: 'Strategy' }, { label: 'Simulator' }],
     imgSrc: '/images/horror-tycoon/horror-tycoon.jpg',
     imgAlt: 'Horror Tycoon logo',
-    accentColor: 'red',
+    accentClasses: 'bg-[#320000] text-[#c70004]',
   },
 ];
 const callsToAction = [
@@ -94,7 +96,7 @@ const MobileNav = () => {
     >
       <Popover.Panel
         focus
-        className='absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden'
+        className='absolute z-30 top-0 inset-x-0 transition transform origin-top-right md:hidden shadow-[0px_2px_4px_-1px_rgba(0,0,0,0.5),0px_4px_5px_0px_rgba(0,0,0,0.14),0px_1px_10px_0px_rgba(0,0,0,0.3)]'
       >
         <div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-black divide-y-2 divide-gray-900'>
           <div className='pt-5 pb-6 px-5 sm:pb-8'>
@@ -115,35 +117,45 @@ const MobileNav = () => {
             </div>
             <div className='mt-6 sm:mt-8'>
               <nav>
-                <div className='grid justify-center gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4'>
+                <div className='grid justify-center grid-cols-1'>
                   {games.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className='group relative -m-3 flex flex-col justify-between max-w-sm rounded-lg overflow-hidden hover:bg-zinc-900'
-                    >
-                      <div className='relative w-full h-32'>
-                        <Image
-                          src={item.imgSrc}
-                          alt={item.imgAlt}
-                          layout='fill'
-                          objectFit='cover'
-                        />
-                      </div>
-                      <span className='absolute top-[114px] right-4 w-6 h-6 border border-white text-zinc-600 rounded-full bg-white group-hover:text-brand-600'>
-                        <FaSteam size={22} />
-                      </span>
-                      <div className='ml-4 p-2 md:flex-1 md:flex md:flex-col md:justify-between lg:ml-0 lg:mt-1'>
-                        <div>
-                          <p className='text-base font-medium text-gray-200'>
-                            {item.name}
-                          </p>
-                          <p className='mt-1 text-sm text-gray-500'>
-                            {item.description}
-                          </p>
+                    <Link key={item.name} href={item.href}>
+                      <div className='relative group transition -m-3 flex flex-col justify-between max-w-sm w-full mx-auto rounded-lg overflow-hidden bg-zinc-900/30 border border-zinc-900/50  hover:bg-zinc-900/50 cursor-pointer'>
+                        <div className='relative w-full h-32'>
+                          <Image
+                            src={item.imgSrc}
+                            alt={item.imgAlt}
+                            layout='fill'
+                            objectFit='cover'
+                          />
+                        </div>
+                        <span className='absolute top-[116px] right-4 w-6 h-6 transition border border-white text-zinc-600 rounded-full bg-white group-hover:text-brand-600'>
+                          <FaSteam size={22} />
+                        </span>
+                        <div className='ml-4 px-2 py-4 md:flex-1 md:flex md:flex-col md:justify-between'>
+                          <div>
+                            <p className='text-sm font-medium text-gray-400'>
+                              {item.name}
+                            </p>
+                            {/* <p className='mt-1 text-sm text-gray-500'>
+                                      {item.description}
+                                    </p> */}
+                            <div className='flex gap-2 mt-2'>
+                              {item.genres.map((genre) => {
+                                return (
+                                  <Tag
+                                    key={genre.label}
+                                    accentClasses={item.accentClasses}
+                                  >
+                                    {genre.label}
+                                  </Tag>
+                                );
+                              })}
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className='mt-8 text-base'>
@@ -160,47 +172,11 @@ const MobileNav = () => {
           </div>
           <div className='py-6 px-5'>
             <div className='grid grid-cols-2 gap-4'>
-              <a
-                href='#'
-                className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700'
-              >
-                Pricing
-              </a>
-
-              <a
-                href='#'
-                className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700'
-              >
-                Docs
-              </a>
-
-              <a
-                href='#'
-                className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700'
-              >
-                Company
-              </a>
-
-              <a
-                href='#'
-                className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700'
-              >
-                Resources
-              </a>
-
-              <a
-                href='#'
-                className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700'
-              >
-                Blog
-              </a>
-
-              <a
-                href='#'
-                className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700'
-              >
-                Contact Sales
-              </a>
+              <a href='#'>Blog</a>
+              <a href='#'>Steam</a>
+              <a href='#'>YouTube</a>
+              <a href='#'>Contact</a>
+              <a href='#'>Press</a>
             </div>
             <div className='mt-6'>
               <a
@@ -210,7 +186,6 @@ const MobileNav = () => {
                 Sign up
               </a>
               <p className='mt-6 text-center text-base font-medium text-gray-200'>
-                Existing customer?{' '}
                 <a href='#' className='text-brand-600 hover:text-brand-500'>
                   Sign in
                 </a>
@@ -225,7 +200,7 @@ const MobileNav = () => {
 
 export const Navbar = () => {
   return (
-    <Popover className='relative bg-black border-b border-zinc-900'>
+    <Popover className='relative max-h-25 h-full bg-black border-b border-zinc-900'>
       <div
         className='absolute inset-0 shadow z-30 pointer-events-none'
         aria-hidden='true'
@@ -233,16 +208,18 @@ export const Navbar = () => {
       <div className='relative z-20'>
         <div className='max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10'>
           <div>
-            <a href='#' className='flex'>
-              <span className='sr-only'>Workflow</span>
-              <div className='relative w-32 h-16'>
-                <Image
-                  src='/images/smidge-games/smidge-games-logo.png'
-                  alt='Smidge Games logo'
-                  layout='fill'
-                />
+            <Link href='/'>
+              <div className='flex'>
+                <span className='sr-only'>Smidge Games</span>
+                <div className='relative w-32 h-16'>
+                  <Image
+                    src='/images/smidge-games/smidge-games-logo.png'
+                    alt='Smidge Games logo'
+                    layout='fill'
+                  />
+                </div>
               </div>
-            </a>
+            </Link>
           </div>
           <div className='-mr-2 -my-2 md:hidden'>
             <Popover.Button className='rounded-md p-2 inline-flex items-center justify-center text-gray-200 hover:text-brand-600 hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-500'>
@@ -281,49 +258,47 @@ export const Navbar = () => {
                       leaveTo='opacity-0 -translate-y-1'
                     >
                       <Popover.Panel className='hidden md:block absolute z-10 top-full inset-x-0 transform shadow-lg bg-black'>
-                        <div className='max-w-7xl mx-auto grid gap-y-6 px-4 py-6 sm:grid-cols-3 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16'>
+                        <div className='max-w-7xl mx-auto grid gap-y-6 px-4 py-6 md:grid-cols-2 md:gap-8 md:px-6 md:py-8 lg:grid-cols-3 lg:px-8 lg:py-12 xl:py-16'>
                           {games.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className=' relative group -m-3 flex flex-col justify-between rounded-lg bg-zinc-900/30 border border-zinc-900/50 overflow-hidden hover:bg-zinc-900/50'
-                            >
-                              <div className='flex md:h-full md:flex-col'>
-                                <div className='relative w-full h-32'>
-                                  <Image
-                                    src={item.imgSrc}
-                                    alt={item.imgAlt}
-                                    layout='fill'
-                                    objectFit='cover'
-                                  />
-                                </div>
-                                <span className='absolute top-[116px] right-4 w-6 h-6 border border-white text-zinc-600 rounded-full bg-white group-hover:text-brand-600'>
-                                  <FaSteam size={22} />
-                                </span>
-                                <div className='ml-4 px-2 py-4 md:flex-1 md:flex md:flex-col md:justify-between'>
-                                  <div>
-                                    <p className='text-sm font-medium text-gray-400'>
-                                      {item.name}
-                                    </p>
-                                    {/* <p className='mt-1 text-sm text-gray-500'>
+                            <Link key={item.name} href={item.href}>
+                              <div className='relative group transition -m-3 flex flex-col justify-between rounded-lg overflow-hidden bg-zinc-900/30 border border-zinc-900/50  hover:bg-zinc-900/50 cursor-pointer'>
+                                <div className='flex md:h-full md:flex-col'>
+                                  <div className='relative w-full h-32'>
+                                    <Image
+                                      src={item.imgSrc}
+                                      alt={item.imgAlt}
+                                      layout='fill'
+                                      objectFit='cover'
+                                    />
+                                  </div>
+                                  <span className='absolute top-[116px] right-4 w-6 h-6 transition border border-white text-zinc-600 rounded-full bg-white group-hover:text-brand-600'>
+                                    <FaSteam size={22} />
+                                  </span>
+                                  <div className='ml-4 px-2 py-4 md:flex-1 md:flex md:flex-col md:justify-between'>
+                                    <div>
+                                      <p className='text-sm font-medium text-gray-400'>
+                                        {item.name}
+                                      </p>
+                                      {/* <p className='mt-1 text-sm text-gray-500'>
                                       {item.description}
                                     </p> */}
-                                    <div className='flex gap-2 mt-2'>
-                                      {item.genres.map((genre) => {
-                                        return (
-                                          <div
-                                            key={genre.label}
-                                            className={`px-2 py-1 text-xs text-${item.accentColor}-500/80 bg-${item.accentColor}-900/60 rounded-full`}
-                                          >
-                                            {genre.label}
-                                          </div>
-                                        );
-                                      })}
+                                      <div className='flex gap-2 mt-2'>
+                                        {item.genres.map((genre) => {
+                                          return (
+                                            <Tag
+                                              key={genre.label}
+                                              accentClasses={item.accentClasses}
+                                            >
+                                              {genre.label}
+                                            </Tag>
+                                          );
+                                        })}
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                            </a>
+                            </Link>
                           ))}
                         </div>
                         <div className='bg-zinc-900'>
