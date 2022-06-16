@@ -5,6 +5,7 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import { formatDistanceToNow, secondsToMilliseconds } from 'date-fns';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
+import { Seo } from '../../components';
 
 type SteamNewsProps = {
   contents: string;
@@ -18,20 +19,27 @@ type NewsProps = {
   news: SteamNewsProps[];
 };
 
-type NewsItemProps = {};
-
 const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
   return (
-    <div>
+    <main>
+      <Seo
+        description='Scare, terrify and thrill guests as you build the haunted house of
+            your nightmares. Demo now available on Steam!'
+        title='Play Horror Tycoon | Smidge Games'
+        url='https://smidge-games.vercel.app'
+        shareUrl='/image/horror-tycoon/horror-tycoon.jpg'
+      />
       <div className='fixed w-screen h-screen -z-10'>
         <Image
           src='/images/horror-tycoon/horror-tycoon-bg.jpg'
           alt='Screenshot from Horror Tycoon'
           layout='fill'
+          objectFit='cover'
+          priority
         />
       </div>
       <div className='flex items-center bg-black w-full h-full md:h-[calc(100vh_-_6em)] -z-10'>
-        <div className='container mx-auto max-w-6xl w-full shadow-[0px_2px_4px_-1px_rgba(0,0,0,0.9),0px_4px_5px_0px_rgba(0,0,0,0.14),0px_1px_10px_0px_rgba(0,0,0,0.7)]'>
+        <div className='container mx-auto max-w-4xl w-full shadow-[0px_2px_4px_-1px_rgba(0,0,0,0.9),0px_4px_5px_0px_rgba(0,0,0,0.14),0px_1px_10px_0px_rgba(0,0,0,0.7)]'>
           <LiteYouTubeEmbed
             id='Mj46bhEw3Ow'
             title='Horror Tycoon official trailer'
@@ -68,7 +76,6 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
               target='_blank'
               rel='noreferrer'
             >
-              {/* <Button size='xl'>Download Now</Button> */}
               <button className='flex items-center'>
                 <div className='text-[#66c0f4] bg-black p-2 rounded-l-lg'>
                   <FaSteam size={32} />
@@ -107,12 +114,14 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
                 <SplideSlide key={item.title}>
                   <div>
                     <div>
-                      <p className='text-xs text-zinc-500 uppercase'>
+                      <p className='mb-1 text-xs text-red-200 uppercase'>
                         {item.date}
                       </p>
-                      <h2 className='text-white text-xl font-horror'>
-                        {item.title}
-                      </h2>
+                      <a href={item.url} target='_blank' rel='noreferrer'>
+                        <h2 className='mb-2 transition text-white text-xl font-horror hover:text-red-600'>
+                          {item.title}
+                        </h2>
+                      </a>
                       {!item.featuredImage && (
                         <p className='text-sm'>{item.contents}</p>
                       )}
@@ -134,7 +143,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
           </Splide>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
