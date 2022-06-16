@@ -4,9 +4,7 @@ import { Popover, Transition } from '@headlessui/react';
 import {
   BookmarkAltIcon,
   BriefcaseIcon,
-  ChartBarIcon,
   CheckCircleIcon,
-  CursorClickIcon,
   DesktopComputerIcon,
   GlobeAltIcon,
   InformationCircleIcon,
@@ -17,7 +15,6 @@ import {
   PlayIcon,
   ShieldCheckIcon,
   UserGroupIcon,
-  ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
