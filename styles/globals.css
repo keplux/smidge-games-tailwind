@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+a {
+  @apply uppercase;
+}
+
 a:hover {
   @apply hover:text-zinc-200 transition;
 }
