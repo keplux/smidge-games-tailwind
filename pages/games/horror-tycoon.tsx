@@ -3,8 +3,9 @@ import Image from 'next/image';
 
 import { formatDistanceToNow, secondsToMilliseconds } from 'date-fns';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
 import { Seo } from '../../components';
+
+import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
 
 type SteamNewsProps = {
   contents: string;
@@ -326,7 +327,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
           />
         </div>
       </div>
-      <div className='relative flex flex-col py-16 bg-red-600'>
+      <div className='relative flex flex-col py-16 w-full bg-red-600'>
         <div className='relative h-48'>
           <Image
             src='/images/smidge-games/smidge-games-logo-dark.png'
@@ -335,7 +336,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
             objectFit='contain'
           />
         </div>
-        <div className='absolute bottom-2 left-1/2 -translate-x-1/2 text-black text-sm'>
+        <div className='absolute bottom-2 left-1/2 -translate-x-1/2 w-full text-center text-black text-sm'>
           <p>
             Horror Tycoon is published by{' '}
             <a
