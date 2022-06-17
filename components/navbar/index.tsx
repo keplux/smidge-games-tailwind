@@ -397,7 +397,7 @@ export const Navbar = () => {
               <a href='#' className='text-base  hover:text-brand-600'>
                 About
               </a>
-              <a href='#' className='text-base  hover:text-brand-600'>
+              <a href='/contact' className='text-base  hover:text-brand-600'>
                 Contact
               </a>
             </Popover.Group>

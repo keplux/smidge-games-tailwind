@@ -30,5 +30,5 @@ module.exports = {
       dropShadow: { dark: '5px 5px 10px #000' },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
