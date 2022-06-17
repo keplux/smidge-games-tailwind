@@ -1,18 +1,14 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import {
   BookmarkAltIcon,
   BriefcaseIcon,
-  CheckCircleIcon,
   DesktopComputerIcon,
   GlobeAltIcon,
   InformationCircleIcon,
   MenuIcon,
   NewspaperIcon,
   OfficeBuildingIcon,
-  PhoneIcon,
-  PlayIcon,
   ShieldCheckIcon,
   UserGroupIcon,
   XIcon,
@@ -21,7 +17,6 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 
 import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
-import { MdFileUpload } from '@react-icons/all-files/md/MdFileUpload';
 import Button from '../button';
 import Tag from '../tag';
 import Link from 'next/link';
@@ -33,7 +28,7 @@ const games = [
       'Get a better understanding of where your traffic is coming from.',
     href: '/games/horror-tycoon',
     genres: [{ label: 'Strategy' }, { label: 'Simulator' }],
-    imgSrc: '/images/horror-tycoon/horror-tycoon.jpg',
+    imgSrc: '/images/horror-tycoon/horror-tycoon-logo-bg.jpg',
     imgAlt: 'Horror Tycoon logo',
     accentClasses: 'bg-[#320000] text-[#c70004]',
   },
@@ -116,7 +111,7 @@ const MobileNav = () => {
               <div className='flex items-center justify-between'>
                 <div className='relative w-32 h-16'>
                   <Image
-                    src='/images/smidge-games/smidge-games-logo.png'
+                    src='/images/smidge-games/smidge-games-logo-orange.png'
                     alt='Smidge Games logo'
                     layout='fill'
                     objectFit='contain'
@@ -215,10 +210,16 @@ const MobileNav = () => {
                 <a href='#'>Press</a>
               </div>
               <div className='mt-6 flex flex-col w-full gap-4 md:ml-12'>
-                <button disabled className='bg-brand-600 rounded-lg py-2 disabled:cursor-not-allowed'>
+                <button
+                  disabled
+                  className='bg-brand-600 rounded-lg py-2 disabled:cursor-not-allowed'
+                >
                   Sign up
                 </button>
-                <button disabled className='py-2 rounded-lg disabled:cursor-not-allowed'>
+                <button
+                  disabled
+                  className='py-2 rounded-lg disabled:cursor-not-allowed'
+                >
                   Sign in
                 </button>
               </div>
@@ -245,7 +246,7 @@ export const Navbar = () => {
                 <span className='sr-only'>Smidge Games</span>
                 <div className='relative w-32 h-16'>
                   <Image
-                    src='/images/smidge-games/smidge-games-logo.png'
+                    src='/images/smidge-games/smidge-games-logo-orange.png'
                     alt='Smidge Games logo'
                     layout='fill'
                     objectFit='contain'

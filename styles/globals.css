@@ -23,13 +23,11 @@ a:hover {
 .splide__pagination.splide__pagination--ltr {
   bottom: -3em;
   justify-content: center;
-  /* width: 12.5em; */
   margin: 0 auto;
 }
 
 .splide__pagination__page {
-  @apply my-2 !bg-zinc-600 !w-4 !h-1 sm:!w-16;
-  /* width: 3em !important; */
+  @apply my-2 !bg-zinc-600 !w-5 !h-1 sm:!w-16;
   border-radius: 1em !important;
 }
 

@@ -1,28 +1,16 @@
 import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
-import { FaFacebook } from '@react-icons/all-files/fa/FaFacebook';
-import { FaInstagram } from '@react-icons/all-files/fa/FaInstagram';
 import { FaTwitter } from '@react-icons/all-files/fa/FaTwitter';
 
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = [
   {
-    name: 'Facebook',
-    href: '#',
-    icon: (props: any) => <FaFacebook size={20} />,
-  },
-  {
-    name: 'Instagram',
-    href: '#',
-    icon: (props: any) => <FaInstagram size={20} />,
-  },
-  {
     name: 'Twitter',
-    href: '#',
+    href: 'https://twitter.com/smidgeg',
     icon: (props: any) => <FaTwitter size={20} />,
   },
   {
     name: 'Steam',
-    href: '#',
+    href: 'https://store.steampowered.com/app/1506680/Horror_Tycoon/',
     icon: (props: any) => <FaSteam size={20} />,
   },
 ];
