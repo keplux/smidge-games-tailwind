@@ -179,23 +179,33 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
       </div>
 
       <div className='flex'>
-        <video
-          autoPlay
-          loop
-          muted
-          preload='none'
-          onContextMenu={(e) => {
-            e.preventDefault();
-            return false;
-          }}
-          className='w-auto min-w-full min-h-full'
-        >
-          <source
-            src='https://player.vimeo.com/progressive_redirect/playback/721233299/rendition/1080p/file.mp4?loc=external&signature=1ebee2693ea5e0b2389e7aab2a2e7304e450b5ae09719fe5b60ccf06534a6f7e'
-            type='video/mp4'
+        <div className='hidden md:block'>
+          <video
+            autoPlay
+            loop
+            muted
+            preload='none'
+            onContextMenu={(e) => {
+              e.preventDefault();
+              return false;
+            }}
+            className='w-auto min-w-full min-h-full'
+          >
+            <source
+              src='https://player.vimeo.com/progressive_redirect/playback/721233299/rendition/1080p/file.mp4?loc=external&signature=1ebee2693ea5e0b2389e7aab2a2e7304e450b5ae09719fe5b60ccf06534a6f7e'
+              type='video/mp4'
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div className='block md:hidden relative h-64 w-full'>
+          <Image
+            src='/images/horror-tycoon/horror-tycoon-guests-entering.jpg'
+            alt='Guests entering a haunted house'
+            layout='fill'
+            objectFit='cover'
           />
-          Your browser does not support the video tag.
-        </video>
+        </div>
       </div>
       <div className='mx-auto bg-black pt-32 pb-40'>
         <div className='max-w-6xl mx-auto px-4 md:px-16'>
@@ -275,7 +285,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
             e.preventDefault();
             return false;
           }}
-          className='w-auto min-w-full min-h-full'
+          className='hidden md:block w-auto min-w-full min-h-full'
         >
           <source
             src='https://player.vimeo.com/progressive_redirect/playback/721215008/rendition/1080p/file.mp4?loc=external&signature=8f7db666832f890efca2d4d213963867092439b6afe479efaf0dbb81d409e30d'
@@ -283,6 +293,14 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
           />
           Your browser does not support the video tag.
         </video>
+      </div>
+      <div className='block md:hidden relative h-64 w-full'>
+        <Image
+          src='/images/horror-tycoon/horror-tycoon-scenery-3.jpg'
+          alt='Guests entering a haunted house'
+          layout='fill'
+          objectFit='cover'
+        />
       </div>
       <div className='px-4 max-w-7xl mx-auto py-32 grid grid-cols-1 justify-between items-center md:grid-cols-2'>
         <div>
