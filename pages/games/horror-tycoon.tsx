@@ -1,12 +1,10 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
-import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { formatDistanceToNow, secondsToMilliseconds } from 'date-fns';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { FaSteam } from '@react-icons/all-files/fa/FaSteam';
 import { Seo } from '../../components';
-import { createElement } from 'react';
 
 type SteamNewsProps = {
   contents: string;
