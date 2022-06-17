@@ -27,6 +27,7 @@ module.exports = {
         sans: ['Rubik'],
         horror: ['Special Elite', 'ui-sans-serif', 'system-ui'],
       },
+      dropShadow: { dark: '5px 5px 10px #000' },
     },
   },
   plugins: [],
