@@ -326,7 +326,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
           />
         </div>
       </div>
-      <div className='relative flex flex-col py-16 bg-red-600'>
+      <div className='relative flex flex-col py-16 w-full bg-red-600'>
         <div className='relative h-48'>
           <Image
             src='/images/smidge-games/smidge-games-logo-dark.png'
@@ -335,7 +335,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
             objectFit='contain'
           />
         </div>
-        <div className='absolute bottom-2 left-1/2 -translate-x-1/2 text-black text-sm'>
+        <div className='absolute bottom-2 left-1/2 -translate-x-1/2 w-full text-center text-black text-sm'>
           <p>
             Horror Tycoon is published by{' '}
             <a
