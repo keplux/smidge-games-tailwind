@@ -12,7 +12,6 @@ a:hover {
   @apply hover:text-zinc-200 transition;
 }
 
-// Carousel
 .splide__arrow.splide__arrow--prev {
   left: -3em;
 }
