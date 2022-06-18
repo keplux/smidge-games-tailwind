@@ -269,7 +269,7 @@ export const Navbar = () => {
                     <Popover.Button
                       className={classNames(
                         open ? 'text-brand-600' : 'text-zinc-400',
-                        'group bg-black rounded-md inline-flex items-center text-base  hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500'
+                        'group px-2 py-1 bg-black rounded-md inline-flex items-center text-base  focus:ring-brand-500 focus:border-brand-500 focus:outline-none focus:ring-2'
                       )}
                     >
                       <span className='uppercase'>Games</span>
@@ -394,7 +394,7 @@ export const Navbar = () => {
                   </>
                 )}
               </Popover>
-              <a href='#' className='text-base  hover:text-brand-600'>
+              <a href='#' className='text-base  hover:text-brand-600 '>
                 About
               </a>
               <a href='/contact' className='text-base  hover:text-brand-600'>

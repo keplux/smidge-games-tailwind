@@ -1,6 +1,26 @@
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline';
+import { useState } from 'react';
+import { Input } from '../components';
 
 const ContactPage = () => {
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    inquiryType: '',
+    message: '',
+  });
+
+  const handleChange = (e: { target: { name: any; value: any } }) => {
+    const { name, value } = e.target;
+
+    const update = {
+      ...data,
+      [name]: value,
+    };
+
+    setData(update);
+  };
   return (
     <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
       <div className='relative shadow-xl'>
@@ -108,10 +128,8 @@ const ContactPage = () => {
                 </defs>
               </svg>
             </div>
-            <h3 className='text-lg  text-black'>
-              Contact information
-            </h3>
-            <p className='mt-6 text-base text-indigo-50 max-w-3xl'>
+            <h3 className='text-lg  text-black'>Contact information</h3>
+            <p className='mt-6 text-base text-brand-50 max-w-3xl'>
               Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
               massa dictumst amet. Sapien tortor lacus arcu.
             </p>
@@ -119,9 +137,9 @@ const ContactPage = () => {
               <dt>
                 <span className='sr-only'>Phone number</span>
               </dt>
-              <dd className='flex text-base text-indigo-50'>
+              <dd className='flex text-base text-brand-50'>
                 <PhoneIcon
-                  className='flex-shrink-0 w-6 h-6 text-indigo-200'
+                  className='flex-shrink-0 w-6 h-6 text-brand-200'
                   aria-hidden='true'
                 />
                 <span className='ml-3'>+1 (555) 123-4567</span>
@@ -129,9 +147,9 @@ const ContactPage = () => {
               <dt>
                 <span className='sr-only'>Email</span>
               </dt>
-              <dd className='flex text-base text-indigo-50'>
+              <dd className='flex text-base text-brand-50'>
                 <MailIcon
-                  className='flex-shrink-0 w-6 h-6 text-indigo-200'
+                  className='flex-shrink-0 w-6 h-6 text-brand-200'
                   aria-hidden='true'
                 />
                 <span className='ml-3'>support@workcation.com</span>
@@ -139,7 +157,7 @@ const ContactPage = () => {
             </dl>
             <ul role='list' className='mt-8 flex space-x-12'>
               <li>
-                <a className='text-indigo-200 hover:text-indigo-100' href='#'>
+                <a className='text-brand-200 hover:text-brand-100' href='#'>
                   <span className='sr-only'>Facebook</span>
                   <svg
                     width={24}
@@ -158,7 +176,7 @@ const ContactPage = () => {
                 </a>
               </li>
               <li>
-                <a className='text-indigo-200 hover:text-indigo-100' href='#'>
+                <a className='text-brand-200 hover:text-brand-100' href='#'>
                   <span className='sr-only'>GitHub</span>
                   <svg
                     width={24}
@@ -177,7 +195,7 @@ const ContactPage = () => {
                 </a>
               </li>
               <li>
-                <a className='text-indigo-200 hover:text-indigo-100' href='#'>
+                <a className='text-brand-200 hover:text-brand-100' href='#'>
                   <span className='sr-only'>Twitter</span>
                   <svg
                     width={24}
@@ -206,114 +224,23 @@ const ContactPage = () => {
               method='POST'
               className='mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8'
             >
-              <div>
-                <label
-                  htmlFor='first-name'
-                  className='block text-sm '
-                >
-                  First name
-                </label>
-                <div className='mt-1'>
-                  <input
-                    type='text'
-                    name='first-name'
-                    id='first-name'
-                    autoComplete='given-name'
-                    className='py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor='last-name'
-                  className='block text-sm '
-                >
-                  Last name
-                </label>
-                <div className='mt-1'>
-                  <input
-                    type='text'
-                    name='last-name'
-                    id='last-name'
-                    autoComplete='family-name'
-                    className='py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor='email' className='block text-sm '>
-                  Email
-                </label>
-                <div className='mt-1'>
-                  <input
-                    id='email'
-                    name='email'
-                    type='email'
-                    autoComplete='email'
-                    className='py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                  />
-                </div>
-              </div>
-              <div>
-                <div className='flex justify-between'>
-                  <label htmlFor='phone' className='block text-sm '>
-                    Phone
-                  </label>
-                  <span id='phone-optional' className='text-sm text-gray-500'>
-                    Optional
-                  </span>
-                </div>
-                <div className='mt-1'>
-                  <input
-                    type='text'
-                    name='phone'
-                    id='phone'
-                    autoComplete='tel'
-                    className='py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                    aria-describedby='phone-optional'
-                  />
-                </div>
-              </div>
-              <div className='sm:col-span-2'>
-                <label htmlFor='subject' className='block text-sm '>
-                  Subject
-                </label>
-                <div className='mt-1'>
-                  <input
-                    type='text'
-                    name='subject'
-                    id='subject'
-                    className='py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md'
-                  />
-                </div>
-              </div>
-              <div className='sm:col-span-2'>
-                <div className='flex justify-between'>
-                  <label
-                    htmlFor='message'
-                    className='block text-sm '
-                  >
-                    Message
-                  </label>
-                  <span id='message-max' className='text-sm text-gray-500'>
-                    Max. 500 characters
-                  </span>
-                </div>
-                <div className='mt-1'>
-                  <textarea
-                    id='message'
-                    name='message'
-                    rows={4}
-                    className='py-3 px-4 block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md'
-                    aria-describedby='message-max'
-                    defaultValue={''}
-                  />
-                </div>
-              </div>
+              <Input label='First name' placeholder='Eyeholes' />
+              <Input label='Last name' placeholder='Man' />
+              <Input
+                label='Email'
+                placeholder='man@eyeholes.com'
+                type='email'
+              />
+              <Input label='Phone' placeholder='(248) 434-5508' type='tel' />
+              <Input
+                className='sm:col-span-2'
+                label='Message'
+                placeholder='Get up on outta here with my eyeholes!'
+              />
               <div className='sm:col-span-2 sm:flex sm:justify-end'>
                 <button
                   type='submit'
-                  className='mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto'
+                  className='mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base  text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 sm:w-auto'
                 >
                   Submit
                 </button>
