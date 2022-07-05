@@ -179,7 +179,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
         </div>
       </div>
 
-      <div className='flex'>
+      <div className='flex justify-center'>
         <div className='hidden md:block'>
           <video
             autoPlay
@@ -276,7 +276,7 @@ const HorrorTycoonPage: NextPage<NewsProps> = ({ news }) => {
           </Splide>
         </div>
       </div>
-      <div className='flex'>
+      <div className='flex justify-center'>
         <video
           autoPlay
           loop

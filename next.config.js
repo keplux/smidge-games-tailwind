@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: { domains: ['cdn.cloudflare.steamstatic.com'] },
+  typescript: { ignoreBuildErrors: true },
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   async redirects() {
     return [
       {
